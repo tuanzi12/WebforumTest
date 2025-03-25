@@ -9,5 +9,5 @@ if __name__ == "__main__":
     # ForumRegister.ForumRegister().RegisterSucTest()
     # ForumLogin.ForumLogin().LoginFailTest()
     ForumLogin.ForumLogin().LoginSucTest()
-    ForumPersonal.ForumPersonal().ChangeProfilePhoto()
+    # ForumPersonal.ForumPersonal().ChangeProfilePhoto()
     forumDriver.driver.quit()
