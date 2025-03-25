@@ -1,0 +1,34 @@
+import time
+
+from selenium.webdriver.common.by import By
+from common.Utils import forumDriver
+
+class ForumLogin:
+    url = ""
+    driver = ""
+    def __init__(self):
+        self.url = "http://127.0.0.1:9580/sign-in.html"
+        self.driver = forumDriver.driver
+        self.driver.get(self.url)
+
+    def LoginSucTest(self):
+
+        self.driver.find_element(By.CSS_SELECTOR, "#username").clear()
+        self.driver.find_element(By.CSS_SELECTOR, "#password").clear()
+        time.sleep(2)
+        self.driver.find_element(By.CSS_SELECTOR, "#username").send_keys("TzTest02")
+        self.driver.find_element(By.CSS_SELECTOR, "#password").send_keys("123")
+        self.driver.find_element(By.CSS_SELECTOR, "#submit").click()
+
+        self.driver.find_element(By.CSS_SELECTOR, "#index_nav_nickname")
+        forumDriver.getScreeShot()
+        self.driver.back()
+
+    def LoginFailTest(self):
+        self.driver.implicitly_wait(5)
+        self.driver.find_element(By.CSS_SELECTOR, "#username").send_keys("TzTest021")
+        self.driver.find_element(By.CSS_SELECTOR, "#password").send_keys("123")
+        self.driver.find_element(By.CSS_SELECTOR, "#submit").click()
+        self.driver.find_element(By.CSS_SELECTOR, "body > div.jq-toast-wrap.bottom-right > div > h2")
+        forumDriver.getScreeShot()
+        self.driver.back()
