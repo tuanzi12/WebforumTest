@@ -15,7 +15,6 @@ class ForumLogin:
 
         self.driver.find_element(By.CSS_SELECTOR, "#username").clear()
         self.driver.find_element(By.CSS_SELECTOR, "#password").clear()
-        time.sleep(2)
         self.driver.find_element(By.CSS_SELECTOR, "#username").send_keys("TzTest02")
         self.driver.find_element(By.CSS_SELECTOR, "#password").send_keys("123")
         self.driver.find_element(By.CSS_SELECTOR, "#submit").click()
