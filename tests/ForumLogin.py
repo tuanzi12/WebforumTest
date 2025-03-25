@@ -22,7 +22,7 @@ class ForumLogin:
 
         self.driver.find_element(By.CSS_SELECTOR, "#index_nav_nickname")
         forumDriver.getScreeShot()
-        self.driver.back()
+
 
     def LoginFailTest(self):
         self.driver.implicitly_wait(5)

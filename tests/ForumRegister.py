@@ -11,6 +11,7 @@ class ForumRegister:
         self.url = "http://127.0.0.1:9580/sign-up.html"
         self.driver = forumDriver.driver
         self.driver.get(self.url)
+
     def RegisterSucTest(self):
             self.driver.find_element(By.CSS_SELECTOR, "#username").clear()
             self.driver.find_element(By.CSS_SELECTOR, "#nickname").clear()
