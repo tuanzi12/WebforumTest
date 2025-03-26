@@ -13,6 +13,7 @@ class ForumRegister:
         self.driver.get(self.url)
 
     def RegisterSucTest(self):
+            #输入新的账号密码并同意协议
             self.driver.find_element(By.CSS_SELECTOR, "#username").clear()
             self.driver.find_element(By.CSS_SELECTOR, "#nickname").clear()
             self.driver.find_element(By.CSS_SELECTOR, "#password").clear()
@@ -30,7 +31,7 @@ class ForumRegister:
             forumDriver.getScreeShot()
 
     def RegisterFailTest(self):
-        # 用户已存在
+        # 输入已存在的用户密码
         self.driver.implicitly_wait(5)
         self.driver.find_element(By.CSS_SELECTOR, "#username").send_keys("TzTest03")
         self.driver.find_element(By.CSS_SELECTOR, "#nickname").send_keys("TzTest03")
@@ -39,7 +40,6 @@ class ForumRegister:
         self.driver.find_element(By.CSS_SELECTOR, "#policy").click()
         self.driver.find_element(By.CSS_SELECTOR, "#submit").click()
         self.driver.find_element(By.CSS_SELECTOR, "body > div.jq-toast-wrap.bottom-right > div > h2")
-        # 添加屏幕截图
         forumDriver.getScreeShot()
 
         # 确认密码与密码不匹配
