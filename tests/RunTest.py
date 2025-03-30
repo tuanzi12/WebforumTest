@@ -11,5 +11,6 @@ if __name__ == "__main__":
     ForumLogin.ForumLogin().LoginSucTest()
     # ForumPersonal.ForumPersonal().Change_ProfilePhoto()
     # ForumPersonal.ForumPersonal(). PersonalProfileSucChange()
-    ForumPersonal.ForumPersonal().PasswordSucChangeTest()
+    # ForumPersonal.ForumPersonal().PasswordSucChangeTest()
+    ForumPersonal.ForumPersonal().PasswordFailChangeTest()
     forumDriver.driver.quit()
