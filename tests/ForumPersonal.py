@@ -1,6 +1,5 @@
 import time
 
-
 from selenium.webdriver.common.by import By
 from common.Utils import forumDriver
 from selenium.webdriver.support.ui import WebDriverWait
@@ -14,18 +13,6 @@ class ForumPersonal:
         self.driver = forumDriver.driver
         self.driver.get(self.url)
 
-    def _scroll_to_element(self, locator, scroll_wait=0.5, **scroll_args):
-        """滚动到指定元素并等待稳定"""
-        element = self.wait.until(EC.presence_of_element_located(locator))
-        self.driver.execute_script(
-            f"arguments[0].scrollIntoView({{"
-            f"behavior: '{scroll_args.get('behavior', 'auto')}', "
-            f"block: '{scroll_args.get('block', 'center')}', "
-            f"inline: '{scroll_args.get('inline', 'nearest')}'}});",
-            element
-        )
-        time.sleep(scroll_wait)
-        return element
     def Change_ProfilePhoto(self):
         #修改头像
         #进入个人页面
