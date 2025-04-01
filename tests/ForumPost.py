@@ -59,7 +59,7 @@ class ForumPost:
         third_text = text_parts[2]
         assert third_text == "请输入帖子标题"
         time.sleep(3)
-        # 只输入内容不输入标题
+
         # 只输入标题不输入内容
             # 输入帖子标题
         self.driver.find_element(By.CSS_SELECTOR, "#article_post_title").send_keys("自动化测试C++")
@@ -74,3 +74,34 @@ class ForumPost:
         third_text = text_parts[2]
 
         assert third_text == "请输入帖子内容"
+        time.sleep(3)
+
+        # 只输入内容不输入标题
+            # 清空标题
+        self.driver.find_element(By.CSS_SELECTOR, "#article_post_title").clear()
+        # 选择codemirror编辑区
+        code_mirror = self.driver.find_element(By.CSS_SELECTOR,
+                                               "#edit-article > div.CodeMirror.cm-s-default.CodeMirror-wrap.CodeMirror-empty")
+        # 输入测试文字
+        self.driver.execute_script("arguments[0].CodeMirror.setValue(arguments[1]);", code_mirror, "测试文字")
+        self.driver.execute_script("arguments[0].scrollIntoView()", button)
+        time.sleep(0.5)
+        button.click()
+
+        element = self.driver.find_element(By.XPATH, "/html/body/div[4]/div")
+        full_text = element.text
+        separator = "\n"  # 或 "\n"、"|" 等实际分隔符
+        text_parts = full_text.split(separator)
+        third_text = text_parts[2]
+        assert third_text == "请输入帖子标题"
+
+    def PostInteraction(self):
+        self.driver.find_element(By.CSS_SELECTOR, "#artical-items-body > div:nth-child(1) > div > div.col > div.text-truncate > a").click()
+        # self.driver.find_element(By.CSS_SELECTOR, "#details_btn_like_count").click()
+        time.sleep(0.5)
+        vc = self.driver.find_element(By.ID, "details_article_visitCount").text
+        lc = self.driver.find_element(By.CSS_SELECTOR, "#details_article_likeCount").text
+        assert vc == '1'
+        assert lc == '1'
+
+

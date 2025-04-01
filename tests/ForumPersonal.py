@@ -21,7 +21,7 @@ class ForumPersonal:
         self.driver.find_element(By.CSS_SELECTOR,"#settings_input_chooiceAvatar").send_keys(r"C:\Users\tuanzi\Desktop\测试项目\论坛系统\personalfile.jpg")
         forumDriver.getScreeShot()
 
-    def PersonalProfileSucChange(self):
+    def PersonalProfileChange(self):
         wait = WebDriverWait(self.driver, 15)
         self.driver.maximize_window()  # 确保窗口最大化
 
