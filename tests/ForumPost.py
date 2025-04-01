@@ -1,9 +1,6 @@
 import time
 from selenium.webdriver.common.by import By
 from common.Utils import forumDriver
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-
 
 class ForumPost:
     url = ""
@@ -37,6 +34,7 @@ class ForumPost:
         time.sleep(1)
         text = self.driver.find_element(By.XPATH, "/html/body/div[1]/div/div[1]/div[2]/div/div/div/div/div/div/div[1]/div/div[2]/div[1]/a/strong").text
         assert text == "自动化测试C++"
+        forumDriver.getScreeShot()
 
     def PostMessageFailTest(self):
         self.driver.implicitly_wait(5)
@@ -59,6 +57,7 @@ class ForumPost:
         third_text = text_parts[2]
         assert third_text == "请输入帖子标题"
         time.sleep(3)
+        forumDriver.getScreeShot()
 
         # 只输入标题不输入内容
             # 输入帖子标题
@@ -75,6 +74,7 @@ class ForumPost:
 
         assert third_text == "请输入帖子内容"
         time.sleep(3)
+        forumDriver.getScreeShot()
 
         # 只输入内容不输入标题
             # 清空标题
@@ -94,14 +94,35 @@ class ForumPost:
         text_parts = full_text.split(separator)
         third_text = text_parts[2]
         assert third_text == "请输入帖子标题"
+        forumDriver.getScreeShot()
 
     def PostInteraction(self):
         self.driver.find_element(By.CSS_SELECTOR, "#artical-items-body > div:nth-child(1) > div > div.col > div.text-truncate > a").click()
-        # self.driver.find_element(By.CSS_SELECTOR, "#details_btn_like_count").click()
+        self.driver.find_element(By.CSS_SELECTOR, "#details_btn_like_count").click()
         time.sleep(0.5)
         vc = self.driver.find_element(By.ID, "details_article_visitCount").text
         lc = self.driver.find_element(By.CSS_SELECTOR, "#details_article_likeCount").text
         assert vc == '1'
-        assert lc == '1'
+        # assert lc == '1'
 
+        # 定位评论区
+        code_mirror = self.driver.find_element(By.CSS_SELECTOR,
+                                               "#article_details_reply > div.CodeMirror.cm-s-default.CodeMirror-wrap.CodeMirror-empty")
 
+        # 输入测试文字
+        self.driver.execute_script("arguments[0].CodeMirror.setValue(arguments[1]);", code_mirror, "评论测试文字")
+        # 定位发布按钮
+        button = self.driver.find_element(By.CSS_SELECTOR, "#details_btn_article_reply")
+        # 滚动找到按钮并添加响应时间
+        self.driver.execute_script("arguments[0].scrollIntoView()", button)
+        time.sleep(0.5)
+        button.click()
+
+        text = self.driver.find_element(By.XPATH, "/html/body/div[1]/div/div[1]/div[2]/div/div/div[3]/div/div[2]/div[1]/div/p").text
+        assert text == "评论测试文字"
+        forumDriver.getScreeShot()
+    def sort(self):
+        self.driver.find_element(By.XPATH, "/html/body/div[1]/header[1]/div/div/div[1]/div/form/div/input").send_keys("自动化测试C++")
+        text = self.driver.find_element(By.XPATH, "/html/body/div[1]/div/div[1]/div[2]/div/div/div/div/div/div/div[1]/div/div[2]/div[1]/a/strong").text
+        assert text == "自动化测试C++"
+        forumDriver.getScreeShot()

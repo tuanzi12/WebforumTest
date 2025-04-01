@@ -22,5 +22,6 @@ if __name__ == "__main__":
     # ForumPost.ForumPost().PostMessageFailTest()
     # ForumPost.ForumPost().PostMessageSucTest()
         # 帖子互动
-    ForumPost.ForumPost().PostInteraction()
+    # ForumPost.ForumPost().PostInteraction()
+    ForumPost.ForumPost().sort()
     forumDriver.driver.quit()
