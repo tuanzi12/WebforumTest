@@ -73,7 +73,7 @@ class ForumPersonal:
         time.sleep(0.5)
         wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#settings_submit_password"))).click()# 点击修改密码按钮
         #重新登录验证
-        self.driver.find_element(By.CSS_SELECTOR, "#username").send_keys("TzTest1")
+        self.driver.find_element(By.CSS_SELECTOR, "#username").send_keys("tuanzi_test4")
         self.driver.find_element(By.CSS_SELECTOR, "#password").send_keys("newpsw1")
         self.driver.find_element(By.CSS_SELECTOR, "#submit").click()
         self.driver.find_element(By.CSS_SELECTOR, "#index_nav_nickname")
