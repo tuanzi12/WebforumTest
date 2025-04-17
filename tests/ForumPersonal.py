@@ -67,14 +67,14 @@ class ForumPersonal:
         )
         time.sleep(1)  # 等待滚动惯性稳定
         # 修改密码
-        self.driver.find_element(By.CSS_SELECTOR, "#settings_input_oldPassword").send_keys("newpsw1")
-        self.driver.find_element(By.CSS_SELECTOR, "#settings_input_newPassword").send_keys("newpsw2")
-        self.driver.find_element(By.CSS_SELECTOR, "#settings_input_passwordRepeat").send_keys("newpsw2")
+        self.driver.find_element(By.CSS_SELECTOR, "#settings_input_oldPassword").send_keys("123")
+        self.driver.find_element(By.CSS_SELECTOR, "#settings_input_newPassword").send_keys("newpsw1")
+        self.driver.find_element(By.CSS_SELECTOR, "#settings_input_passwordRepeat").send_keys("newpsw1")
         time.sleep(0.5)
         wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#settings_submit_password"))).click()# 点击修改密码按钮
         #重新登录验证
-        self.driver.find_element(By.CSS_SELECTOR, "#username").send_keys("TzTest03")
-        self.driver.find_element(By.CSS_SELECTOR, "#password").send_keys("newpsw2")
+        self.driver.find_element(By.CSS_SELECTOR, "#username").send_keys("TzTest1")
+        self.driver.find_element(By.CSS_SELECTOR, "#password").send_keys("newpsw1")
         self.driver.find_element(By.CSS_SELECTOR, "#submit").click()
         self.driver.find_element(By.CSS_SELECTOR, "#index_nav_nickname")
         forumDriver.getScreeShot()

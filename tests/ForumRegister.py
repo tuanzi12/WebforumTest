@@ -18,8 +18,8 @@ class ForumRegister:
             self.driver.find_element(By.CSS_SELECTOR, "#password").clear()
             self.driver.find_element(By.CSS_SELECTOR, "#passwordRepeat").clear()
 
-            self.driver.find_element(By.CSS_SELECTOR, "#username").send_keys("TzTest02")
-            self.driver.find_element(By.CSS_SELECTOR, "#nickname").send_keys("TzTest02")
+            self.driver.find_element(By.CSS_SELECTOR, "#username").send_keys("TzTest1")
+            self.driver.find_element(By.CSS_SELECTOR, "#nickname").send_keys("TzTest1")
             self.driver.find_element(By.CSS_SELECTOR, "#password").send_keys("123")
             self.driver.find_element(By.CSS_SELECTOR, "#passwordRepeat").send_keys("123")
             self.driver.find_element(By.CSS_SELECTOR, "#policy").click()

@@ -14,8 +14,8 @@ class ForumLogin:
         #清空输入框并输入正确的账号密码并点击正常登录
         self.driver.find_element(By.CSS_SELECTOR, "#username").clear()
         self.driver.find_element(By.CSS_SELECTOR, "#password").clear()
-        self.driver.find_element(By.CSS_SELECTOR, "#username").send_keys("TzTest03")
-        self.driver.find_element(By.CSS_SELECTOR, "#password").send_keys("newpsw2")
+        self.driver.find_element(By.CSS_SELECTOR, "#username").send_keys("TzTest1")
+        self.driver.find_element(By.CSS_SELECTOR, "#password").send_keys("123")
         self.driver.find_element(By.CSS_SELECTOR, "#submit").click()
         #找到登录后首页的logo即为登陆成功
         self.driver.find_element(By.CSS_SELECTOR, "#index_nav_nickname")
