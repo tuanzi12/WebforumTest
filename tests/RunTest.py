@@ -5,6 +5,7 @@ from tests import ForumPost
 from common.Utils import forumDriver
 
 if __name__ == "__main__":
+    username = "tuanzi_test5"
         # 注册失败/注册成功
     ForumRegister.ForumRegister().RegisterFailTest()
     ForumRegister.ForumRegister().RegisterSucTest()

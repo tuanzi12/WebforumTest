@@ -11,15 +11,14 @@ class ForumRegister:
         self.driver = forumDriver.driver
         self.driver.get(self.url)
 
-    def RegisterSucTest(self):
+    def RegisterSucTest(self, username="tuanzi_test5"):
             #输入新的账号密码并同意协议
             self.driver.find_element(By.CSS_SELECTOR, "#username").clear()
             self.driver.find_element(By.CSS_SELECTOR, "#nickname").clear()
             self.driver.find_element(By.CSS_SELECTOR, "#password").clear()
             self.driver.find_element(By.CSS_SELECTOR, "#passwordRepeat").clear()
-
-            self.driver.find_element(By.CSS_SELECTOR, "#username").send_keys("tuanzi_test4")
-            self.driver.find_element(By.CSS_SELECTOR, "#nickname").send_keys("tuanzi_test4")
+            self.driver.find_element(By.CSS_SELECTOR, "#username").send_keys(username)
+            self.driver.find_element(By.CSS_SELECTOR, "#nickname").send_keys(username)
             self.driver.find_element(By.CSS_SELECTOR, "#password").send_keys("123")
             self.driver.find_element(By.CSS_SELECTOR, "#passwordRepeat").send_keys("123")
             self.driver.find_element(By.CSS_SELECTOR, "#policy").click()

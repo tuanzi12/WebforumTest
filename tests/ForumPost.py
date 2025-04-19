@@ -66,10 +66,10 @@ class ForumPost:
         time.sleep(0.5)
         button.click()
 
-        element = self.driver.find_element(By.XPATH,"/html/body/div[4]/div")
-        full_text = element.text
+        element = self.driver.find_element(By.XPATH,"/html/body/div[4]/div")#检查错误弹窗
+        full_text = element.text #获取弹窗内所有文字
         separator = "\n"  # 或 "\n"、"|" 等实际分隔符
-        text_parts = full_text.split(separator)
+        text_parts = full_text.split(separator) #弹窗文字以回车分割，
         third_text = text_parts[2]
 
         assert third_text == "请输入帖子内容"
@@ -103,7 +103,7 @@ class ForumPost:
         vc = self.driver.find_element(By.ID, "details_article_visitCount").text
         lc = self.driver.find_element(By.CSS_SELECTOR, "#details_article_likeCount").text
         assert vc == '1'
-        # assert lc == '1'
+        assert lc == '1'
 
         # 定位评论区
         code_mirror = self.driver.find_element(By.CSS_SELECTOR,

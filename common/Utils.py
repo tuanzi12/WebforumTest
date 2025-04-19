@@ -10,6 +10,7 @@ from webdriver_manager.microsoft import EdgeChromiumDriverManager
 
 class Driver:
     driver = ""
+
     def __init__(self):
         options = webdriver.EdgeOptions()
         self.driver = webdriver.Edge(service=Service(EdgeChromiumDriverManager().install()),options = options)
